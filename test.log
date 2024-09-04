@@ -1,0 +1,20 @@
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:8: Started
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: initialize
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:52: Connected to: helix 24.7
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:27: Sent the response
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: initialized
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/didOpen
+[lua_lsp]2024/09/05 00:23:25 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:93: Opened file:///home/kome/Documents/code-projects/random/lua_lsp/lsp_test.etlua
+[lua_lsp]2024/09/05 00:23:31 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/hover
+[lua_lsp]2024/09/05 00:23:31 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:27: Sent the response
+[lua_lsp]2024/09/05 00:23:33 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/didChange
+[lua_lsp]2024/09/05 00:23:33 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:99: Changed file:///home/kome/Documents/code-projects/random/lua_lsp/lsp_test.etlua
+[lua_lsp]2024/09/05 00:23:34 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/didChange
+[lua_lsp]2024/09/05 00:23:34 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:99: Changed file:///home/kome/Documents/code-projects/random/lua_lsp/lsp_test.etlua
+[lua_lsp]2024/09/05 00:23:34 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/didChange
+[lua_lsp]2024/09/05 00:23:34 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:99: Changed file:///home/kome/Documents/code-projects/random/lua_lsp/lsp_test.etlua
+[lua_lsp]2024/09/05 00:23:34 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/didChange
+[lua_lsp]2024/09/05 00:23:34 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:99: Changed file:///home/kome/Documents/code-projects/random/lua_lsp/lsp_test.etlua
+[lua_lsp]2024/09/05 00:23:36 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/hover
+[lua_lsp]2024/09/05 00:23:36 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:27: Sent the response
+[lua_lsp]2024/09/05 00:23:39 @/home/kome/Documents/code-projects/random/lua_lsp/src/main.lua:48: Received message with method: textDocument/didSave
