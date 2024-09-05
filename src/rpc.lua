@@ -1,5 +1,4 @@
 local json = require("cjson")
-local pipe = require("lib.pipe")
 local interp = require("lib.interp")
 
 local rpc = {}

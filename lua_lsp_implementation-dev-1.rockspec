@@ -1,5 +1,5 @@
 ---@diagnostic disable:lowercase-global
-package = "lua_lsp"
+package = "lua_lsp_implementation"
 version = "dev-1"
 source = {
   url = "",
