@@ -1,3 +1,0 @@
-Content-Length: 18
-
-{"method":"world"}
