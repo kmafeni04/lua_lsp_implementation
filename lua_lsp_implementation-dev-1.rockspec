@@ -10,7 +10,8 @@ description = {
 }
 
 dependencies = {
-  "lua == 5.1, JIT",
+  "lua == 5.1",
+  "luajit",
   "lua-cjson == 2.1.0.10-1",
   "busted == 2.2.0-1",
 }

@@ -2,7 +2,7 @@ local interp = require("lib.interp")
 local switch = require("lib.switch")
 local rpc = require("src.rpc")
 
-local log_file = io.open("test.log", "w")
+local log_file = io.open("lsp.log", "w")
 local date = os.date("%Y/%m/%d", os.time())
 local time = os.date("%X", os.time())
 local logged_file = debug.getinfo(1).source
@@ -11,7 +11,7 @@ assert(log_file):write(interp("[lua_lsp]{{date}} {{time}} {{logged_file}}:{{line
 assert(log_file):close()
 
 local function log(input)
-  local log_file = io.open("test.log", "a")
+  local log_file = io.open("lsp.log", "a")
   local date = os.date("%Y/%m/%d", os.time())
   local time = os.date("%X", os.time())
   local logged_file = debug.getinfo(2).source
@@ -21,8 +21,9 @@ local function log(input)
 end
 
 ---@param writer iolib
----@param response string
-local response_writer = function(writer, response)
+---@param msg table
+local response_writer = function(writer, msg)
+  local response = rpc.encode_message(msg)
   writer.write(response)
   writer.flush()
   log("Sent the response")
@@ -64,8 +65,7 @@ while true do
           },
         }
 
-        local response = rpc.encode_message(msg)
-        response_writer(io, response)
+        response_writer(io, msg)
       end,
       ["textDocument/didOpen"] = function()
         local request = request
@@ -108,8 +108,7 @@ while true do
             diagnostics = diagnostics,
           },
         }
-        local response = rpc.encode_message(msg)
-        response_writer(io, response)
+        response_writer(io, msg)
       end,
       ["textDocument/didChange"] = function()
         local request = request
@@ -175,8 +174,7 @@ while true do
               diagnostics = diagnostics,
             },
           }
-          local response = rpc.encode_message(msg)
-          response_writer(io, response)
+          response_writer(io, msg)
         end
       end,
       ["textDocument/hover"] = function()
@@ -192,7 +190,7 @@ while true do
           },
         }
         local response = rpc.encode_message(msg)
-        response_writer(io, response)
+        response_writer(io, msg)
       end,
       ["textDocument/definition"] = function()
         ---@type DefinitionResponse
@@ -214,7 +212,7 @@ while true do
           },
         }
         local response = rpc.encode_message(msg)
-        response_writer(io, response)
+        response_writer(io, msg)
       end,
       ["textDocument/codeAction"] = function()
         local text = documents[request.params.textDocument.uri]
@@ -278,14 +276,18 @@ while true do
           id = request.id,
           result = actions,
         }
-        local response = rpc.encode_message(msg)
-        response_writer(io, response)
+        response_writer(io, msg)
       end,
       ["textDocument/completion"] = function()
         ---@type CompletionItem[]
         local items = {
           {
             label = "Sent from LSP",
+            detail = "Info from LSP",
+            documentation = "Information from the LSP",
+          },
+          {
+            label = "Also sent from LSP",
             detail = "Info from LSP",
             documentation = "Information from the LSP",
           },
@@ -298,7 +300,7 @@ while true do
           result = items,
         }
         local response = rpc.encode_message(msg)
-        response_writer(io, response)
+        response_writer(io, msg)
       end,
       ["shutdown"] = function()
         os.exit()

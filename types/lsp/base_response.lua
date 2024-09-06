@@ -2,8 +2,5 @@
 
 ---@class BaseResponse
 ---@field jsonrpc string 2.0
----@field id integer
+---@field id integer request id
 ---@field method? string
-
----@class Notification : BaseResponse
----@field method string
