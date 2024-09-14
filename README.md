@@ -6,7 +6,7 @@ This is a basic implementation of an LSP server written in lua
 
 ### Requirements
 
-- lua5.1 or luajit
+- lua5.1
 - luarocks
 
 ### Steps
