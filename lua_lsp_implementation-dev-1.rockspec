@@ -2,16 +2,15 @@
 package = "lua_lsp_implementation"
 version = "dev-1"
 source = {
-  url = "",
+  url = "https://github.com/kmafeni04/lua_lsp_implementation",
 }
 description = {
-  homepage = "*** please enter a project homepage ***",
+  homepage = "https://github.com/kmafeni04/lua_lsp_implementation",
   license = "*** please specify a license ***",
 }
 
 dependencies = {
   "lua == 5.1",
-  "luajit",
   "lua-cjson == 2.1.0.10-1",
   "busted == 2.2.0-1",
 }
