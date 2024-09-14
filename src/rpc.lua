@@ -1,5 +1,5 @@
 local json = require("cjson")
-local interp = require("lib.interp")
+local interp = require("utils.interp")
 
 local rpc = {}
 

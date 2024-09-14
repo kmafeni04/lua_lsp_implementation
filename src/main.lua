@@ -1,14 +1,16 @@
-local interp = require("lib.interp")
-local switch = require("lib.switch")
+local interp = require("utils.interp")
+local switch = require("utils.switch")
 local rpc = require("src.rpc")
 
-local log_file = io.open("lsp.log", "w")
-local date = os.date("%Y/%m/%d", os.time())
-local time = os.date("%X", os.time())
-local logged_file = debug.getinfo(1).source
-local line = debug.getinfo(1).currentline
-assert(log_file):write(interp("[lua_lsp]{{date}} {{time}} {{logged_file}}:{{line}}: Started\n"))
-assert(log_file):close()
+do
+  local log_file = io.open("lsp.log", "w")
+  local date = os.date("%Y/%m/%d", os.time())
+  local time = os.date("%X", os.time())
+  local logged_file = debug.getinfo(1).source
+  local line = debug.getinfo(1).currentline
+  assert(log_file):write(interp("[lua_lsp]{{date}} {{time}} {{logged_file}}:{{line}}: Started\n"))
+  assert(log_file):close()
+end
 
 local function log(input)
   local log_file = io.open("lsp.log", "a")
@@ -29,14 +31,10 @@ local response_writer = function(writer, msg)
   log("Sent the response")
 end
 
-local function read_in()
-  return io.read(1)
-end
-
 local stdin = ""
 local documents = {}
 while true do
-  stdin = stdin .. read_in()
+  stdin = stdin .. io.read(1)
 
   local request, content_length = rpc.decode_message(stdin)
   if request then
@@ -123,7 +121,8 @@ while true do
             table.insert(rows, text_line)
           end
           for row_index, row_line in ipairs(rows) do
-            local character_index = string.find(row_line, "VS code")
+            local character_index
+            character_index = string.find(row_line, "VS code")
             if character_index then
               ---@type Diagnostic
               local diagnostic = {
@@ -143,7 +142,7 @@ while true do
               }
               table.insert(diagnostics, diagnostic)
             end
-            local character_index = string.find(row_line, "Helix")
+            character_index = string.find(row_line, "Helix")
             if character_index then
               ---@type Diagnostic
               local diagnostic = {
